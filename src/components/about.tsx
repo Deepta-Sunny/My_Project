@@ -7,7 +7,7 @@ import profileImg from "../assets/images/profile.png";
 const useStyles = makeStyles((theme: any) => ({
   section: {
     padding: "80px 16px",
-    background: theme.palette.background.default, 
+    background: theme.palette.background.default,
   },
 
   title: {
@@ -21,32 +21,34 @@ const useStyles = makeStyles((theme: any) => ({
     padding: "48px",
     maxWidth: 1000,
     margin: "0 auto",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: theme.palette.background.paper,
     boxShadow:
       theme.palette.mode === "dark"
         ? "0 8px 30px rgba(0, 0, 0, 0.45)"
-        : "0 8px 30px rgba(147, 51, 234, 0.08)",
+        : "0 8px 30px rgba(59, 183, 228, 0.15)",
     border:
       theme.palette.mode === "dark"
-        ? "1px solid rgba(168, 85, 247, 0.15)"
-        : "1px solid rgba(147, 51, 234, 0.1)",
+        ? "1px solid rgba(148, 163, 184, 0.25)"
+        : "1px solid rgba(59, 183, 228, 0.25)",
+    transition: "0.3s ease",
   },
 
   imageWrapper: {
     width: "100%",
-    height: "280px",
-    borderRadius: "12px",
-    backgroundColor: theme.palette.primary.main,
-    boxShadow: "0 4px 20px rgba(147, 51, 234, 0.25)",
+    height: "300px",
+    borderRadius: "16px",
+    objectFit: "cover",
+    boxShadow: "0 6px 24px rgba(0,0,0,0.15)",
   },
 
   textBlock: {
     maxWidth: 600,
     color: theme.palette.text.primary,
+    fontSize: "1.05rem",
+    lineHeight: 1.7,
   },
 }));
-
 
 const About: React.FC = () => {
   const classes = useStyles();
@@ -57,6 +59,7 @@ const About: React.FC = () => {
         <Typography variant="h4" className={classes.title}>
           About Me
         </Typography>
+
         <Paper elevation={3} className={classes.paper}>
           <Box
             sx={{
@@ -66,42 +69,42 @@ const About: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Box sx={{ width: { xs: "85%", md: "30%" } }}>
+            {/* LEFT IMAGE */}
+            <Box sx={{ width: { xs: "100%", md: "35%" } }}>
               <img
                 src={profileImg}
-                alt="Deepta K Sunny"
+                alt="Profile placeholder"
                 className={classes.imageWrapper}
               />
-
             </Box>
-            <Box sx={{ width: { xs: "100%", md: "60%" } }}>
+
+            {/* RIGHT TEXT */}
+            <Box sx={{ width: { xs: "100%", md: "65%" } }}>
               <div className={classes.textBlock}>
                 <Typography paragraph>
-                  I’m Deepta Sunny, an Associate Consultant passionate about creating solutions
-                  that make life easier for people. I love solving real-world problems and
-                  building applications that have a meaningful impact.
+                  I’m Deepta Sunny, an Associate Consultant passionate about
+                  creating solutions that simplify and enhance everyday life. I
+                  enjoy solving real-world challenges and building meaningful,
+                  user-centered applications.
                 </Typography>
 
                 <Typography paragraph>
-                  Beyond technology, I’m a good listener, friendly, and enjoy connecting with
-                  people. When I’m not coding, you’ll find me exploring new places, reading
-                  books, or participating in hackathons to challenge myself and learn from
-                  others.
+                  Outside of technology, I’m a friendly person who enjoys
+                  listening, learning, and exploring. I love traveling, reading,
+                  and participating in hackathons to constantly improve my
+                  skills.
                 </Typography>
 
                 <Typography paragraph>
-                  I have experience with technologies like C#, Python, Azure, SQL, and React,
-                  and I’m always eager to learn and grow. My goal is to contribute to
-                  innovative projects that address everyday challenges and make a difference.
+                  I work with technologies like C#, Python, Azure, SQL, and
+                  React. I’m always eager to learn more and contribute to
+                  impactful, innovative projects.
                 </Typography>
 
                 <Typography paragraph>
-                  I love learning, exploring new ideas, and collaborating on projects that
-                  combine technology with meaningful problem-solving. Let’s connect and create
-                  something amazing together!
+                  I’m passionate about blending creativity and problem-solving
+                  to build solutions that truly make a difference.
                 </Typography>
-
-
               </div>
             </Box>
           </Box>
