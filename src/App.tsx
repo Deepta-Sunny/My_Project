@@ -38,9 +38,9 @@ const App: React.FC = () => {
 
       <Footer />
 
-      {/* ✅ REQUIRED for toast to render */}
+      {/*REQUIRED for toast to render */}
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop
