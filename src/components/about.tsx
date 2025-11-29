@@ -1,52 +1,59 @@
 import React from "react";
-import { Container, Box, Typography, Paper } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import profileImg from "../assets/images/profile.png";
 
-
 const useStyles = makeStyles((theme: any) => ({
   section: {
-    padding: "80px 16px",
-    background: theme.palette.background.default,
-  },
-
-  title: {
-    textAlign: "center",
-    marginBottom: "48px",
-    fontWeight: 700,
-    color: theme.palette.primary.main,
-  },
-
-  paper: {
-    padding: "48px",
-    maxWidth: 1000,
-    margin: "0 auto",
-    borderRadius: "20px",
-    background: theme.palette.background.paper,
-    boxShadow:
-      theme.palette.mode === "dark"
-        ? "0 8px 30px rgba(0, 0, 0, 0.45)"
-        : "0 8px 30px rgba(59, 183, 228, 0.15)",
-    border:
-      theme.palette.mode === "dark"
-        ? "1px solid rgba(148, 163, 184, 0.25)"
-        : "1px solid rgba(59, 183, 228, 0.25)",
-    transition: "0.3s ease",
-  },
-
-  imageWrapper: {
     width: "100%",
-    height: "300px",
-    borderRadius: "16px",
+    padding: "100px 0",
+    background:
+      theme.palette.mode === "light"
+        ? "#F9FAFB"
+        : theme.palette.background.default,
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  wrapper: {
+    maxWidth: "1200px",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: "0 20px",
+    gap: "60px",
+
+    ["@media (max-width: 900px)"]: {
+      flexDirection: "column-reverse",
+      textAlign: "center",
+      gap: "40px",
+    },
+  },
+
+  image: {
+    width: "100%",
+    maxWidth: "420px",
+    borderRadius: "18px",
     objectFit: "cover",
-    boxShadow: "0 6px 24px rgba(0,0,0,0.15)",
+    boxShadow:
+      theme.palette.mode === "light"
+        ? "0 10px 30px rgba(0,0,0,0.12)"
+        : "0 10px 30px rgba(255,255,255,0.08)",
+  },
+
+  heading: {
+    fontWeight: 700,
+    fontSize: "2.6rem",
+    marginBottom: "20px",
+    color: theme.palette.text.primary,
   },
 
   textBlock: {
-    maxWidth: 600,
+    maxWidth: "600px",
+    fontSize: "1.1rem",
+    lineHeight: 1.75,
     color: theme.palette.text.primary,
-    fontSize: "1.05rem",
-    lineHeight: 1.7,
   },
 }));
 
@@ -54,61 +61,45 @@ const About: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <section id="about">
-      <Container className={classes.section}>
-        <Typography variant="h4" className={classes.title}>
-          About Me
-        </Typography>
+    <section id="about" className={classes.section}>
+      <Container>
+        <Box className={classes.wrapper}>
+          {/* LEFT TEXT */}
+          <Box>
+            <Typography className={classes.heading}>About Me</Typography>
 
-        <Paper elevation={3} className={classes.paper}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              gap: 4,
-              alignItems: "center",
-            }}
-          >
-            {/* LEFT IMAGE */}
-            <Box sx={{ width: { xs: "100%", md: "35%" } }}>
-              <img
-                src={profileImg}
-                alt="Profile placeholder"
-                className={classes.imageWrapper}
-              />
-            </Box>
+            <div className={classes.textBlock}>
+              <Typography paragraph>
+                I’m Deepta Sunny, an Associate Consultant passionate about
+                creating solutions that simplify and enhance everyday life. I
+                enjoy solving real-world challenges and building meaningful,
+                user-centered applications.
+              </Typography>
 
-            {/* RIGHT TEXT */}
-            <Box sx={{ width: { xs: "100%", md: "65%" } }}>
-              <div className={classes.textBlock}>
-                <Typography paragraph>
-                  I’m Deepta Sunny, an Associate Consultant passionate about
-                  creating solutions that simplify and enhance everyday life. I
-                  enjoy solving real-world challenges and building meaningful,
-                  user-centered applications.
-                </Typography>
+              <Typography paragraph>
+                Outside of technology, I’m a friendly person who enjoys
+                listening, learning, and exploring. I love traveling, reading,
+                and participating in hackathons to constantly improve my skills.
+              </Typography>
 
-                <Typography paragraph>
-                  Outside of technology, I’m a friendly person who enjoys
-                  listening, learning, and exploring. I love traveling, reading,
-                  and participating in hackathons to constantly improve my
-                  skills.
-                </Typography>
+              <Typography paragraph>
+                I work with technologies like C#, Python, Azure, SQL, and React.
+                I’m always eager to learn more and contribute to impactful,
+                innovative projects.
+              </Typography>
 
-                <Typography paragraph>
-                  I work with technologies like C#, Python, Azure, SQL, and
-                  React. I’m always eager to learn more and contribute to
-                  impactful, innovative projects.
-                </Typography>
-
-                <Typography paragraph>
-                  I’m passionate about blending creativity and problem-solving
-                  to build solutions that truly make a difference.
-                </Typography>
-              </div>
-            </Box>
+              <Typography paragraph>
+                I’m passionate about blending creativity and problem-solving to
+                build solutions that truly make a difference.
+              </Typography>
+            </div>
           </Box>
-        </Paper>
+
+          {/* RIGHT IMAGE */}
+          <Box>
+            <img src={profileImg} className={classes.image} alt="Profile" />
+          </Box>
+        </Box>
       </Container>
     </section>
   );

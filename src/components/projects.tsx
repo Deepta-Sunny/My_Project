@@ -182,7 +182,7 @@ const Projects: React.FC = () => {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        maxWidth="sm"         // ⬅ SMALLER MODAL
+        maxWidth="sm"        
         fullWidth
         PaperProps={{
           sx: {
@@ -214,7 +214,7 @@ const Projects: React.FC = () => {
                 alt={selectedProject.title}
                 style={{
                   width: "100%",
-                  height: "200px",       // ⬅ REDUCED HEIGHT
+                  height: "200px",      
                   objectFit: "cover",
                   borderRadius: "10px",
                   marginBottom: "16px",

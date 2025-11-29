@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
     <footer className={classes.footer}>
       <Container maxWidth={false} className={classes.root}>
         <Typography className={classes.text}>
-          © {year} Your Name. All rights reserved.
+          © {year} Deepta K Sunny. All rights reserved.
         </Typography>
       </Container>
     </footer>

@@ -35,19 +35,39 @@ const useStyles = makeStyles((theme: any) => ({
     justifyContent: "space-between",
   },
 
-  brand: {
-    fontWeight: 700,
-    fontSize: "1.55rem",
-    letterSpacing: "0.5px",
-    color: theme.palette.text.primary,
-    textDecoration: "none",
-    transition: "0.25s ease",
+   brand: {
+  fontWeight: 700,
+  fontSize: "1.55rem",
+  letterSpacing: "0.5px",
+  color: theme.palette.text.primary,
+  textDecoration: "none",
+  transition: "0.25s ease",
+  padding: "6px 12px",
+  borderRadius: "8px",
 
-    "&:hover": {
-      color: theme.palette.primary.main,
-      transform: "translateY(-2px)",
-    },
+  "&:hover": {
+    transform: "translateY(-2px)",
+
+    
+    color:
+      theme.palette.mode === "light"
+        ? "#0F172A"
+        : theme.palette.primary.main,
+
+   
+    backgroundColor:
+      theme.palette.mode === "light"
+        ? "rgba(12, 72, 94, 0.15)"   
+        : "rgba(148,163,184,0.15)",    
+
+    
+    boxShadow:
+      theme.palette.mode === "light"
+        ? "0 0 10px rgba(59,183,228,0.25)"
+        : "0 0 10px rgba(148,163,184,0.35)",
   },
+},
+
 
   navLinks: {
     display: "flex",
@@ -55,7 +75,6 @@ const useStyles = makeStyles((theme: any) => ({
     alignItems: "center",
     marginLeft: "auto",
   },
-
   linkText: {
     fontSize: "1rem",
     fontWeight: 500,
@@ -67,13 +86,19 @@ const useStyles = makeStyles((theme: any) => ({
     cursor: "pointer",
 
     "&:hover": {
-      color: theme.palette.primary.main,
-      backgroundColor:
-        theme.palette.mode === "dark"
-          ? "rgba(255,255,255,0.08)"
-          : "rgba(99,102,241,0.1)",
-      transform: "translateY(-2px)",
-    },
+  backgroundColor:
+    theme.palette.mode === "dark"
+      ? "rgba(255,255,255,0.1) !important"
+      : "rgba(59,183,228,0.15) !important",
+
+  color:
+    theme.palette.mode === "dark"
+      ? `${theme.palette.primary.main} !important`
+      : "#0F172A !important",
+
+  transform: "translateY(-2px)",
+},
+
   },
 
   iconGroup: {
@@ -111,7 +136,7 @@ const Navbar: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 90; // navbar height
+      const offset = 90; 
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 

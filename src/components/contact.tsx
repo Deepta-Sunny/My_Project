@@ -10,7 +10,7 @@ import {
 import { makeStyles } from "@mui/styles";
 import { toast } from "react-toastify";
 
-import emailIcon from "../assets/images/Email.png"; // <-- ADD YOUR IMAGE HERE
+import emailIcon from "../assets/images/Email.png"; 
 
 const useStyles = makeStyles((theme: any) => ({
   section: {

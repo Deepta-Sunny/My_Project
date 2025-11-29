@@ -94,7 +94,6 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
 
-  // ✅ Animation from your older hero
   "@keyframes fadeUp": {
     "0%": { opacity: 0, transform: "translateY(25px)" },
     "100%": { opacity: 1, transform: "translateY(0)" },
