@@ -35,39 +35,38 @@ const useStyles = makeStyles((theme: any) => ({
     justifyContent: "space-between",
   },
 
-   brand: {
-  fontWeight: 700,
-  fontSize: "1.55rem",
-  letterSpacing: "0.5px",
-  color: theme.palette.text.primary,
-  textDecoration: "none",
-  transition: "0.25s ease",
-  padding: "6px 12px",
-  borderRadius: "8px",
+  /* ✨ ONE UNIVERSAL HOVER EFFECT FOR ALL NAV ITEMS */
+  hoverEffect: {
+    transition: "0.25s ease",
+    borderRadius: "8px",
+    padding: "6px 12px",
 
-  "&:hover": {
-    transform: "translateY(-2px)",
+    "&:hover": {
+      transform: "translateY(-2px)",
+      color:
+        theme.palette.mode === "light"
+          ? "#0F172A !important"
+          : `${theme.palette.primary.main} !important`,
 
-    
-    color:
-      theme.palette.mode === "light"
-        ? "#0F172A"
-        : theme.palette.primary.main,
+      backgroundColor:
+        theme.palette.mode === "light"
+          ? "rgba(12,72,94,0.15) !important"
+          : "rgba(148,163,184,0.15) !important",
 
-   
-    backgroundColor:
-      theme.palette.mode === "light"
-        ? "rgba(12, 72, 94, 0.15)"   
-        : "rgba(148,163,184,0.15)",    
-
-    
-    boxShadow:
-      theme.palette.mode === "light"
-        ? "0 0 10px rgba(59,183,228,0.25)"
-        : "0 0 10px rgba(148,163,184,0.35)",
+      boxShadow:
+        theme.palette.mode === "light"
+          ? "0 0 10px rgba(59,183,228,0.25)"
+          : "0 0 10px rgba(148,163,184,0.35)",
+    },
   },
-},
 
+  brand: {
+    fontWeight: 700,
+    fontSize: "1.55rem",
+    letterSpacing: "0.5px",
+    color: theme.palette.text.primary,
+    cursor: "pointer",
+  },
 
   navLinks: {
     display: "flex",
@@ -75,30 +74,12 @@ const useStyles = makeStyles((theme: any) => ({
     alignItems: "center",
     marginLeft: "auto",
   },
+
   linkText: {
     fontSize: "1rem",
     fontWeight: 500,
-    textDecoration: "none",
-    padding: "8px 14px",
-    borderRadius: "8px",
-    color: theme.palette.text.primary,
-    transition: "all 0.25s ease",
     cursor: "pointer",
-
-    "&:hover": {
-  backgroundColor:
-    theme.palette.mode === "dark"
-      ? "rgba(255,255,255,0.1) !important"
-      : "rgba(59,183,228,0.15) !important",
-
-  color:
-    theme.palette.mode === "dark"
-      ? `${theme.palette.primary.main} !important`
-      : "#0F172A !important",
-
-  transform: "translateY(-2px)",
-},
-
+    color: theme.palette.text.primary,
   },
 
   iconGroup: {
@@ -115,18 +96,9 @@ const useStyles = makeStyles((theme: any) => ({
 
   iconButton: {
     color: theme.palette.text.primary,
-    transition: "0.3s ease",
-
-    "&:hover": {
-      color: theme.palette.primary.main,
-      transform: "scale(1.15)",
-      backgroundColor:
-        theme.palette.mode === "dark"
-          ? "rgba(255,255,255,0.08)"
-          : "rgba(99,102,241,0.12)",
-    },
   },
 }));
+
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
@@ -136,7 +108,7 @@ const Navbar: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 90; 
+      const offset = 90;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -150,9 +122,9 @@ const Navbar: React.FC = () => {
   return (
     <AppBar position="fixed" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography 
-          variant="h6" 
-          className={classes.brand}
+        <Typography
+          variant="h6"
+          className={`${classes.brand} ${classes.hoverEffect}`}
           onClick={() => scrollToSection("hero")}
           sx={{ cursor: "pointer", fontWeight: 400 }}
         >
@@ -160,32 +132,32 @@ const Navbar: React.FC = () => {
         </Typography>
 
         <div className={classes.navLinks}>
-          <Typography 
-            className={classes.linkText}
+          <Typography
+            className={`${classes.linkText} ${classes.hoverEffect}`}
             onClick={() => scrollToSection("hero")}
           >
             Home
           </Typography>
-          <Typography 
-            className={classes.linkText}
+          <Typography
+            className={`${classes.linkText} ${classes.hoverEffect}`}
             onClick={() => scrollToSection("about")}
           >
             About
           </Typography>
-          <Typography 
-            className={classes.linkText}
+          <Typography
+            className={`${classes.linkText} ${classes.hoverEffect}`}
             onClick={() => scrollToSection("skills")}
           >
             Skills
           </Typography>
-          <Typography 
-            className={classes.linkText}
+          <Typography
+            className={`${classes.linkText} ${classes.hoverEffect}`}
             onClick={() => scrollToSection("projects")}
           >
             Projects
           </Typography>
-          <Typography 
-            className={classes.linkText}
+          <Typography
+            className={`${classes.linkText} ${classes.hoverEffect}`}
             onClick={() => scrollToSection("contact")}
           >
             Contact
@@ -195,7 +167,7 @@ const Navbar: React.FC = () => {
             <IconButton
               href="https://github.com/yourusername"
               target="_blank"
-              className={classes.iconButton}
+              className={`${classes.iconButton} ${classes.hoverEffect}`}
             >
               <GitHubIcon />
             </IconButton>
@@ -203,14 +175,14 @@ const Navbar: React.FC = () => {
             <IconButton
               href="https://www.linkedin.com/in/yourprofile"
               target="_blank"
-              className={classes.iconButton}
+              className={`${classes.iconButton} ${classes.hoverEffect}`}
             >
               <LinkedInIcon />
             </IconButton>
 
             <IconButton
               onClick={() => dispatch(toggleTheme())}
-              className={classes.iconButton}
+              className={`${classes.iconButton} ${classes.hoverEffect}`}
             >
               {darkMode ? <Brightness7 /> : <Brightness4 />}
             </IconButton>
