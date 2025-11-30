@@ -28,8 +28,6 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-
-
 const Footer: React.FC = () => {
   const classes = useStyles();
   const year = new Date().getFullYear();

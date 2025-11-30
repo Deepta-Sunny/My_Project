@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme: any) => ({
     justifyContent: "space-between",
   },
 
-  /* ✨ ONE UNIVERSAL HOVER EFFECT FOR ALL NAV ITEMS */
   hoverEffect: {
     transition: "0.25s ease",
     borderRadius: "8px",
@@ -126,7 +125,7 @@ const Navbar: React.FC = () => {
           variant="h6"
           className={`${classes.brand} ${classes.hoverEffect}`}
           onClick={() => scrollToSection("hero")}
-          sx={{ cursor: "pointer", fontWeight: 400 }}
+          sx={{ cursor: "pointer", fontWeight: 500 }}
         >
           Deepta K Sunny
         </Typography>
@@ -165,7 +164,7 @@ const Navbar: React.FC = () => {
 
           <div className={classes.iconGroup}>
             <IconButton
-              href="https://github.com/yourusername"
+              href="https://github.com/Deepta-Sunny/My_Project"
               target="_blank"
               className={`${classes.iconButton} ${classes.hoverEffect}`}
             >
@@ -173,7 +172,7 @@ const Navbar: React.FC = () => {
             </IconButton>
 
             <IconButton
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/deeptaksunny"
               target="_blank"
               className={`${classes.iconButton} ${classes.hoverEffect}`}
             >
