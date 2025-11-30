@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "./store/store";
 import { lightTheme, darkTheme } from "./store/theme";
 
-const AppWithTheme = () => {
+const AppTheme = () => {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
   const theme = darkMode ? darkTheme : lightTheme;
 
@@ -25,6 +25,6 @@ const AppWithTheme = () => {
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
-    <AppWithTheme />
+    <AppTheme />
   </Provider>
 )

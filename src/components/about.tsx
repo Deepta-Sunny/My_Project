@@ -64,7 +64,6 @@ const About: React.FC = () => {
     <section id="about" className={classes.section}>
       <Container>
         <Box className={classes.wrapper}>
-          {/* LEFT TEXT */}
           <Box>
             <Typography className={classes.heading}>About Me</Typography>
 
@@ -94,8 +93,6 @@ const About: React.FC = () => {
               </Typography>
             </div>
           </Box>
-
-          {/* RIGHT IMAGE */}
           <Box>
             <img src={profileImg} className={classes.image} alt="Profile" />
           </Box>
